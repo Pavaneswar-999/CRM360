@@ -4,6 +4,10 @@ coverage/
 .env
 .env.*
 !.env.example
+.vercel/
+.render/
+*.pem
+*.key
+*.crt
 *.log
 .DS_Store
-
