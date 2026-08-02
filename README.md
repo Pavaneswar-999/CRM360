@@ -2,9 +2,9 @@
 
 CRM360 is a focused customer relationship workspace for small teams. It keeps every relationship, next action, owner, follow-up, pipeline stage, task, and interaction in one clear place.
 
-## MVP status
+## Project status
 
-This project is being built as a submission-ready MERN MVP. The implementation is intentionally centered on working CRM workflows rather than decorative dashboard content.
+CRM360 implements the core CRM workflows described in the project brief. The product is centered on working, database-backed customer, lead, task, pipeline, and follow-up workflows rather than decorative dashboard content.
 
 ## Structure
 
@@ -13,7 +13,7 @@ This project is being built as a submission-ready MERN MVP. The implementation i
 - `docs/` — research, architecture, security, testing, deployment, and project report
 - `docs/DESIGN-HANDOFF.md` — Stitch prompt, Figma handoff, and design iteration workflow
 - `docs/UX-AUDIT.md` — screenshot findings, product coverage, and verification gaps
-- `PLAN.md` — deadline-aware execution plan and scope decisions
+- `PLAN.md` — implementation plan and scope decisions
 
 ## Run locally
 
@@ -36,8 +36,8 @@ The seed script creates fictional accounts for local demonstration. The credenti
 
 The primary production path is MongoDB Atlas plus one Render Blueprint containing both the API and frontend. Vercel remains an optional frontend alternative. Follow `docs/DEPLOYMENT.md` for environment variables, CORS, health checks, SPA fallback, and smoke tests.
 
-## Known limitations
+## Current limitations
 
-- Password reset uses a development-safe reset-link response when no email provider is configured.
-- Notifications refresh on navigation and controlled polling; real-time sockets are intentionally out of the one-day MVP scope.
-- The initial pipeline uses explicit stage controls; drag-and-drop is only added if it can be verified reliably after core workflows are complete.
+- In local development without SMTP, password reset returns a safe reset link for testing. Production sends reset links through the configured email provider.
+- Notifications refresh when the page opens and through controlled polling; real-time sockets are not currently included.
+- Pipeline stages use explicit controls. Drag-and-drop can be added later after the interaction and accessibility details are verified.

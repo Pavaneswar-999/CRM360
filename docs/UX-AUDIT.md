@@ -1,4 +1,4 @@
-# CRM360 UX Audit and Tomorrow-Ready Scope
+# CRM360 UX Audit and Product Scope
 
 ## What the screenshot revealed
 
@@ -15,9 +15,9 @@ The registration page was technically usable as a form, but it did not communica
 | P1 | Auth layout had weak next-step orientation. | The page felt short and unfinished, especially on a large display. | Add overview navigation, product capability proof, and a more intentional content rhythm. |
 | P2 | Visual motion and decoration could compete with task clarity. | Decorative effects can distract and may be uncomfortable for some users. | Keep motion restrained and preserve the existing reduced-motion handling. |
 
-## Product coverage for the MVP
+## Product coverage for the core platform
 
-CRM360 should be judged as a relationship operating layer, not only a sales board. The tomorrow-ready slice therefore keeps these connected:
+CRM360 should be judged as a relationship operating layer, not only a sales board. The current product scope therefore keeps these connected:
 
 - Customers: owner, contact details, activity history, and relationship context.
 - Leads: source, stage, value, owner, and conversion path.

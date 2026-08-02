@@ -2,7 +2,7 @@
 
 ## Abstract
 
-CRM360 is a focused SaaS CRM MVP for small and medium-sized teams that need one reliable place for customers, leads, follow-ups, tasks, ownership, and pipeline progress. Its differentiator is a deterministic Focus Queue that turns live CRM records into clear next actions.
+CRM360 is a focused SaaS CRM platform for small and medium-sized teams that need one reliable place for customers, leads, follow-ups, tasks, ownership, and pipeline progress. Its differentiator is a deterministic Focus Queue that turns live CRM records into clear next actions.
 
 ## Introduction and problem statement
 
@@ -49,7 +49,7 @@ The actual test/build outputs must be appended to the final submission record af
 
 ## Limitations and future scope
 
-The MVP uses a development-safe password reset response without an email provider, controlled notification refresh instead of sockets, a single pipeline, and explicit stage controls instead of unverified drag-and-drop. Future scope includes email/calendar integrations, realtime events, imports, richer analytics, and configurable workspaces.
+In local development without SMTP, password reset returns a safe reset link for testing; production sends reset links through the configured email provider. Notifications use controlled refresh instead of real-time sockets, the product currently uses one pipeline, and stage movement uses explicit controls instead of drag-and-drop. Future work may include email and calendar integrations, real-time events, imports, richer analytics, and configurable workspaces.
 
 ## Conclusion
 
