@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Bell, Building2, CheckSquare, CircleHelp, KanbanSquare, LayoutDashboard, LogOut, Menu, Search, Settings, Target, Users, X } from 'lucide-react'
 import { NavLink, Outlet, useNavigate } from 'react-router'
 import { Logo } from './Logo'
+import { PageTransition } from './PageTransition'
 import { useAuth } from '../auth'
 import { api, request } from '../api'
 
@@ -21,6 +22,7 @@ export function AppShell() {
   const [open, setOpen] = useState(false)
   const [search, setSearch] = useState('')
   const [unread, setUnread] = useState(0)
+  const searchRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     const loadUnread = () => void request<{ unreadCount: number }>(api.get('/notifications')).then((data) => setUnread(data.unreadCount)).catch(() => undefined)
@@ -29,15 +31,26 @@ export function AppShell() {
     return () => window.clearInterval(timer)
   }, [])
 
+  useEffect(() => {
+    const focusSearch = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        searchRef.current?.focus()
+      }
+    }
+    window.addEventListener('keydown', focusSearch)
+    return () => window.removeEventListener('keydown', focusSearch)
+  }, [])
+
   const signOut = () => { logout(); navigate('/login') }
   const submitSearch = (event: React.FormEvent) => { event.preventDefault(); if (search.trim()) navigate(`/app/search?q=${encodeURIComponent(search.trim())}`) }
 
   return <div className="app-shell">
     <aside className={`sidebar ${open ? 'sidebar-open' : ''}`}>
       <div className="sidebar-top"><Logo /><button className="icon-button mobile-only" onClick={() => setOpen(false)} aria-label="Close navigation"><X size={18} /></button></div>
-      <div className="workspace-switch" aria-label="Current workspace">
+      <div className="workspace-summary" aria-label="Current workspace">
         <span className="workspace-avatar">C</span>
-        <span><strong>CRM360 workspace</strong><small>Single workspace · {user?.role} view</small></span>
+        <span><strong>CRM360 workspace</strong><small>{user?.role} access</small></span>
       </div>
       <nav className="main-nav">{links.map(({ to, label, icon: Icon }) => <NavLink key={to} to={to} end={to === '/app'} onClick={() => setOpen(false)} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}><Icon size={18} /><span>{label}</span></NavLink>)}</nav>
       <div className="nav-section-label">Workspace</div>
@@ -52,8 +65,8 @@ export function AppShell() {
       </div>
     </aside>
     <div className="main-area">
-      <header className="topbar"><button className="icon-button mobile-only" onClick={() => setOpen(true)} aria-label="Open navigation"><Menu size={20} /></button><form className="global-search" onSubmit={submitSearch}><Search size={17} /><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search customers, leads, tasks..." aria-label="Global search" /><kbd>⌘ K</kbd></form><div className="topbar-actions"><button className="icon-button" onClick={() => navigate('/app/notifications')} aria-label="Open notifications"><Bell size={18} />{unread > 0 && <i className="notification-dot" />}</button><div className="topbar-user"><span className="avatar avatar-small">{user?.name?.slice(0, 1)}</span><span className="topbar-user-name">{user?.name?.split(' ')[0]}</span></div></div></header>
-      <main className="content"><Outlet /></main>
+      <header className="topbar"><button className="icon-button mobile-only" onClick={() => setOpen(true)} aria-label="Open navigation"><Menu size={20} /></button><form className="global-search" onSubmit={submitSearch}><Search size={17} /><input ref={searchRef} value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search customers, leads, tasks..." aria-label="Global search" /><kbd>Ctrl K</kbd></form><div className="topbar-actions"><button className="icon-button" onClick={() => navigate('/app/notifications')} aria-label="Open notifications"><Bell size={18} />{unread > 0 && <i className="notification-dot" />}</button><div className="topbar-user"><span className="avatar avatar-small">{user?.name?.slice(0, 1)}</span><span className="topbar-user-name">{user?.name?.split(' ')[0]}</span></div></div></header>
+      <main className="content"><PageTransition className="app-route"><Outlet /></PageTransition></main>
     </div>
     {open && <div className="mobile-scrim" onClick={() => setOpen(false)} />}
   </div>

@@ -40,7 +40,7 @@ export function PipelinePage() {
 
   return <div className="page-stack">
     <div className="page-header">
-      <div><span className="eyebrow">Sales motion</span><h1>Pipeline</h1><p className="page-subtitle">A reliable stage view with ownership, value, and the next action in context.</p></div>
+      <div><span className="eyebrow">Opportunity stages</span><h1>Pipeline</h1><p className="page-subtitle">See who owns each opportunity, its value, and what should happen next.</p></div>
       <Link className="button button-primary" to="/app/leads"><Plus size={17} /> Create lead</Link>
     </div>
     {error && <div className="form-error" role="alert">{error}</div>}

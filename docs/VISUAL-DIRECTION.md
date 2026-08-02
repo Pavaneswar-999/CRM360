@@ -1,49 +1,37 @@
-# CRM360 visual direction
+# CRM360 Visual Direction
 
-This document turns the supplied reference images into an implementable product direction. The references are used for composition, typography, pacing, and presentation—not copied artwork or screens.
+The supplied references are used to study composition, type scale, material texture, and pace. CRM360 does not copy their artwork or screens.
 
-## What the references teach us
+## Editorial Signal Room
 
-- Editorial composition: a strong display title, one dominant visual idea, small supporting labels, and generous negative space.
-- Material feeling: imagery should have a deliberate surface treatment—soft light, grain, shadow, or translucency—not a random stock-photo banner.
-- Information hierarchy: the large statement establishes the mood; the smaller metadata explains what the viewer is seeing.
-- UI/UX clarity: visual design and interaction design are separate concerns. A beautiful presentation still needs obvious next actions, keyboard access, useful empty states, and honest system status.
+CRM360 pairs a high-contrast editorial public experience with an efficient application workspace. The landing page shows why customer context and follow-up matter; the app makes those actions easy to complete.
 
-## CRM360 translation
+### Visual ingredients
 
-CRM360 uses a “Relationship Atlas” visual language: a calm working surface with a precise network motif. The product visual is the relationship graph, not a generic space scene.
+- A text-free master image of tactile record cards and task tabs, placed behind live text with strong contrast.
+- Large Manrope headings with deliberate line breaks, supported by small DM Mono labels.
+- Mineral bone, carbon, moss, and a single muted citron accent.
+- Ruled-grid and paper-grain texture that stays behind content.
+- Rectangular shapes, tab edges, dividers, and thread strokes rather than planets, spheres, orbital lines, or generic 3D decoration.
 
-### Brand system
+### Page intent
 
-- Logo: a custom relationship-node mark with a stable silhouette at 16–32px.
-- Display type: Manrope for decisive, compact page and hero headlines.
-- Reading type: DM Sans for forms, tables, helper text, and long descriptions.
-- Palette: warm paper `#F2F0EA`, surface `#FFFDF8`, ink `#17233A`, deep navy `#101B31`, copper `#C5744D`, supporting blue `#5570D7`, success `#258B70`, warning `#BA7D2D`, alert red `#C55362`.
-- Tagline: “Every relationship. Every next step.”
-- Imagery: one canonical relationship-atlas image, restrained WebGL nodes, deep navy depth, copper signal lines, and quiet paper texture. No decorative image is allowed to imply a feature that does not exist; independent generated frames are never crossfaded as if they were one object.
-- Layout: 12-column marketing compositions, asymmetrical feature grids, 8px spacing rhythm, 44px minimum interactive controls, and a readable content width.
-- Texture: barely visible grain/radial light only; it must never reduce text contrast or compete with data.
-- Icons: Lucide for operational controls, custom inline SVG for the brand mark, and consistent semantic color treatment.
-- Style: editorial landing pages paired with dense, calm, permission-aware application surfaces. The landing uses framed product views and module-specific calls to action so the page explains the product instead of presenting generic cards.
+| Surface | What it needs to communicate | Primary action |
+| --- | --- | --- |
+| Landing | A customer relationship moves from capture to a completed next action. | Create an account or explore a specific CRM area. |
+| Sign in and registration | The form is secure, clear, and connected to a real workspace. | Sign in, create an account, or reset a password. |
+| Dashboard | What needs attention now, backed by stored tasks and records. | Open tasks, create a record, or inspect the pipeline. |
+| Customers and leads | Ownership and context around a real record. | Add, edit, view detail, assign, convert, or search. |
+| Pipeline | Where opportunities stand and who should act next. | Update a real lead stage. |
+| Tasks and notifications | Assigned work, due dates, and recent changes. | Create, complete, reassign, or mark updates read. |
 
-## Motion rules
+### Motion rules
 
-- Landing hero: the relationship graph loads lazily and responds to pointer movement without trapping scroll or requiring zoom.
-- Product screens: transitions clarify state changes only—opening a detail view, completing a task, moving a lead, or changing filters.
-- Reduced motion: all nonessential animation is disabled under `prefers-reduced-motion`.
-- Failure state: WebGL has a static fallback, and network/API failures explain what the user can do next.
+- Landing sections use subtle GSAP transforms and Lenis scroll smoothing. Content remains visible without JavaScript.
+- App/auth use short Framer Motion transitions only.
+- The optional Three.js scene is a lower-page visual detail: connected rectangular planes with a static fallback.
+- Movement never blocks reading, typing, scrolling, keyboard use, or route navigation.
 
-## Visual QA checklist
+### Visual QA
 
-Before calling a page complete, review it at 1440px, 1024px, 768px, and 390px widths:
-
-1. Can the page’s primary action be identified in three seconds?
-2. Does every visible control navigate or perform a real operation?
-3. Are headings, helper text, table values, and error messages readable without zooming?
-4. Does the layout have a clear focal point rather than equal-weight cards?
-5. Does the page still work with no WebGL, no database, keyboard navigation, and reduced motion?
-6. Are empty, loading, success, and error states as designed as the default state?
-
-## Reference practice
-
-The supplied reference sites and tools inform the workflow: 3D Websites for restrained interactive canvas ideas, AB Test Design for conversion and onboarding questions, Logosystem for mark exploration, HorizonX for design/code parity, and Figma/Stitch for composition exploration. Final CRM360 assets remain original and tied to the CRM problem statement.
+Review at 375px, 768px, 1024px, and 1440px. At every size, check contrast, text wrapping, focus rings, click targets, empty states, error messages, and that every apparent control has a real result.

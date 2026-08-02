@@ -26,10 +26,18 @@ router.post('/', validate(z.object({ body: taskFields })), asyncHandler(async (r
 router.patch('/:id', validate(z.object({ body: taskFields.partial() })), asyncHandler(async (req, res) => {
   const current = await Task.findOne({ _id: req.params.id, ...scope(req) }); if (!current) throw new AppError('Task not found', 404)
   if (canSeeAll(req.user!.role) && req.body.assignedTo && !(await User.exists({ _id: req.body.assignedTo, active: true }))) throw new AppError('Assigned teammate not found', 400)
+  const reassigned = canSeeAll(req.user!.role) && Boolean(req.body.assignedTo) && current.assignedTo.toString() !== req.body.assignedTo
   const updates = { ...req.body, ...(req.body.status === 'Completed' ? { completedAt: new Date() } : req.body.status ? { completedAt: undefined } : {}) }
   if (!canSeeAll(req.user!.role)) delete updates.assignedTo
   const task = await Task.findByIdAndUpdate(current._id, updates, { new: true, runValidators: true }).populate('assignedTo', 'name')
   if (!task) throw new AppError('Task not found', 404)
+  if (reassigned) {
+    const recipient = (task.assignedTo as unknown as { _id: string })._id.toString()
+    await Promise.all([
+      logActivity({ type: 'task_reassigned', description: `Reassigned task: ${task.title}`, actor: req.user!.id, task: task._id.toString() }),
+      notify({ recipient, type: 'task_assigned', title: 'Task assigned', message: task.title, relatedEntityType: 'task', relatedEntityId: task._id.toString() }),
+    ])
+  }
   if (req.body.status === 'Completed' && current.status !== 'Completed') await logActivity({ type: 'task_completed', description: `Completed task: ${task.title}`, actor: req.user!.id, task: task._id.toString() })
   res.json({ success: true, data: { task } })
 }))

@@ -18,7 +18,7 @@ The A/B Test page emphasizes concrete experiments around onboarding checklists, 
 
 ## Motion and 3D references
 
-The named portfolio and scroll references demonstrate that React/Three.js, Spline, Framer Motion, GSAP, and scroll-driven composition can create strong visual moments. They also have materially different performance and implementation costs from a CRM productivity app. CRM360 borrows only restrained depth, orbital relationship motifs, layered cards, and short transitions on the public landing page. The authenticated workspace uses CSS depth and subtle motion rather than a heavy WebGL scene, with reduced-motion-friendly behavior.
+The named portfolio and scroll references demonstrate that React/Three.js, Spline, Framer Motion, GSAP, and scroll-driven composition can create strong visual moments. They also have materially different performance and implementation costs from a CRM productivity app. CRM360 uses one text-free material image, layered record-card forms, short transitions, and a small connection-plane scene on the public landing page. The authenticated workspace uses CSS depth and subtle motion rather than a heavy WebGL scene, with reduced-motion-friendly behavior.
 
 ## UI kit references
 

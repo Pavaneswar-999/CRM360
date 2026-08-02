@@ -2,44 +2,47 @@
 
 ## Working design file
 
-[Open CRM360 — Product Screens in Figma](https://www.figma.com/design/QRIZ9K3bhOQJPjfMOCENiz)
+[Open CRM360 — Editorial Signal Room in Figma](https://www.figma.com/design/BjdhmBVjcVCywUIq41wd8Q)
 
-The file contains an original CRM360 exploration board for the landing direction and Focus Queue. It was created from the CRM360 design system; local source code and customer records were not exported into Figma.
+The Figma file holds the CRM360 visual tokens, component rules, and responsive directions. It is a design source, not a copy of the application or customer data. The React application remains the working product.
 
-Local visual reference: `docs/figma-crm360-exploration.png`.
+## Direction
 
-## Stitch prompt for the next iteration
+CRM360 is an operational CRM for teams that need to see the next action without losing the customer context around it. The visual language is editorial and material, while the authenticated application stays direct and easy to scan.
 
-```text
-Design a responsive B2B SaaS CRM called CRM360 for small sales teams.
+- **Tagline:** Every relationship. Every next move.
+- **Type:** Manrope for display and interface copy; DM Mono only for dates, short status labels, and dense metadata.
+- **Palette:** mineral bone canvas, carbon and moss structure, and muted citron for the primary signal. Success, warning, and error colours remain semantic and distinct.
+- **Texture:** restrained paper grain and ruled-grid details in CSS/SVG. Texture never sits over data or reduces contrast.
+- **Logo:** the CRM360 relationship-thread SVG mark. It is original to this project and appears with the CRM360 wordmark.
+- **Layout:** 12 columns on desktop, 6 on tablet, and 4 on mobile. Marketing uses deliberate asymmetry; application pages use compact, predictable operational layouts.
 
-Screens:
-- Public landing page with an asymmetric split hero, one primary CTA, relationship workflow, feature proof, trust statement, and footer.
-- Authenticated dashboard with a 250px sidebar, top search, four real metric cards, a database-derived Focus Queue, pipeline stage summary, recent activity, and quick actions.
-- Lead detail view with overview, activity timeline, notes, tasks, owner, stage, estimated value, next action, and follow-up date.
-- Mobile layout with a compact navigation drawer and stacked, touch-friendly controls.
+## Canonical visual asset
 
-Visual direction:
-- Editorial clarity combined with modern SaaS precision.
-- Warm paper canvas, cream surfaces, deep navy ink, copper primary signal, blue secondary structure, emerald success, and amber warning.
-- Manrope for headings and DM Sans for body copy.
-- 4px spacing rhythm; 14px cards; subtle tinted shadows; no heavy glassmorphism.
-- Use asymmetric layouts, one canonical relationship-atlas image, and an original relationship/orbital motif only on the public landing page. Do not animate between unrelated generated frames.
+`client/public/crm360-signal-room-hero.png` is the single approved generated image. It is text-free and depicts layered index cards and task tabs with a quiet citron path. It contains no people, screens, logos, charts, planets, spheres, satellites, or orbit lines.
 
-Product behavior:
-- Clear loading, empty, error, hover, focus, disabled, and destructive-confirmation states.
-- Accessible contrast, visible labels, minimum 44px touch targets, and reduced-motion support.
-- Do not invent charts, fake customer metrics, pricing, AI claims, or decorative WebGL in the authenticated workspace.
-```
+The landing hero, authentication backdrop, and final landing callout use controlled crops of this same image with CSS overlays. Do not generate separate start/end images or crossfade different generated scenes. All text, buttons, labels, and meaningful content remain live HTML.
 
-## Workflow
+## Motion and interaction rules
 
-1. Explore 2–3 variants in Stitch using the prompt above.
-2. Keep the structure that best communicates the next action in under five seconds.
-3. Refine the chosen direction in Figma using the existing CRM360 board and components.
-4. Compare against the running React app at desktop, tablet, and mobile widths.
-5. Implement only changes that improve hierarchy, task completion, accessibility, or perceived performance.
+- Lenis and GSAP are limited to the public landing page. They enhance scroll rhythm but never hide content or replace native keyboard scrolling.
+- Framer Motion is limited to short route transitions in authentication and the app.
+- The lower landing enhancement is a contained Three.js scene of rectangular record planes and connection strokes. It has a static fallback and contains no essential information.
+- `prefers-reduced-motion` disables nonessential movement.
+- Every visible link, button, filter, search field, and form must carry out its stated action. Remove an element if the product cannot support it.
 
-## Reference sources
+## Product writing rules
 
-The research log in `docs/RESEARCH.md` records the CRM, motion, and UI references used for patterns. Premium references are inspiration only; CRM360 uses original visual assets and copy.
+Write plainly and tie claims to existing behavior. Prefer “Assignments and tasks with an upcoming due date” over abstract language. Do not claim AI, automation, live numbers, customer results, or features that are not implemented.
+
+## QA before release
+
+1. Check the landing page, auth pages, dashboard, and record management at 375px, 768px, 1024px, and 1440px.
+2. Confirm the primary action on every screen leads to the correct route or API operation.
+3. Check focus visibility, labels, keyboard navigation, contrast, loading, empty, error, success, and permission states.
+4. Confirm the product still works when the Three.js canvas is unavailable or motion is reduced.
+5. Use Playwright screenshots and Axe scans as a guardrail; validate real CRUD flows against the deployed API before presenting the site.
+
+## Reference practice
+
+Figma and Stitch are used for design exploration. Product references informed hierarchy, scrolling, and interaction patterns, but no external screen, logo, or paid asset is copied into CRM360.

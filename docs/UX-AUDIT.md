@@ -1,37 +1,31 @@
-# CRM360 UX Audit and Product Scope
+# CRM360 UX Audit
 
-## What the screenshot revealed
+## Purpose
 
-The registration page was technically usable as a form, but it did not communicate a complete product. The large empty areas and decorative orbital graphic gave the user no evidence of what happens after account creation. The generic error also hid the real blocker: the browser could not complete the API/database-backed registration flow in the current local environment.
+CRM360 is useful only when the visible interface leads to a real action. This audit records the rules used while rebuilding the product experience.
 
-## Priority findings
+## Corrections made
 
-| Priority | Finding | User impact | Correction |
-| --- | --- | --- | --- |
-| P0 | Registration failure was reported as “Unable to create your account.” | A user cannot distinguish a bad form, duplicate email, offline API, or missing MongoDB. | Show the API response when available and an actionable offline/API message when there is no response. |
-| P0 | No visible product preview on account creation. | The user is asked to commit before understanding the value. | Show a Focus Queue preview with ownership, due state, and linked customer context beside the form. |
-| P1 | The public page focused on visual atmosphere more than the complete operating surface. | Visitors may assume CRM360 is only a pipeline. | Add a relationship-surface section covering leads, customers, tasks, insights, search, and use-case domains. |
-| P1 | The form did not enforce the password rule it displayed. | Invalid data reached the server and feedback was delayed. | Enforce the eight-character minimum client-side and keep server validation authoritative. |
-| P1 | Auth layout had weak next-step orientation. | The page felt short and unfinished, especially on a large display. | Add overview navigation, product capability proof, and a more intentional content rhythm. |
-| P2 | Visual motion and decoration could compete with task clarity. | Decorative effects can distract and may be uncomfortable for some users. | Keep motion restrained and preserve the existing reduced-motion handling. |
+| Area | Previous issue | Current behavior |
+| --- | --- | --- |
+| Public landing | Repeated cards and links led to the same destination. | Each workflow action has its own registration destination: leads, customers, tasks, or pipeline. |
+| Hero imagery | Generated visual directions could drift between unrelated images. | One approved text-free master image is reused with controlled crops and overlays. |
+| Authentication | The form was visually separate from the product story. | Live sign-in, registration, and password reset forms sit in the same full-canvas system with labels, errors, focus states, and password visibility controls. |
+| Dashboard | Equal-weight metrics obscured daily priorities. | The “Now” queue comes from actual dashboard tasks, follow-ups, and lead activity. Zero-data actions open the real creation routes. |
+| Navigation | Some display treatment implied workspace switching. | The sidebar now states the current workspace and role without implying an unavailable switcher. |
+| Notifications | Due work needed an explicit system path. | The API creates persisted upcoming and overdue task notifications when the notifications endpoint is checked; the client refreshes them on load and every 30 seconds. |
+| Motion | Visual effects risked hiding content or slowing work. | Marketing-only scroll motion leaves DOM content visible, while app/auth transitions are short and reduced-motion-safe. |
 
-## Product coverage for the core platform
+## Functional surface
 
-CRM360 should be judged as a relationship operating layer, not only a sales board. The current product scope therefore keeps these connected:
+- Customers: create, search, update, delete where authorised, and inspect activity/task context.
+- Leads: create, assign, update, add notes, change stage, convert when allowed, and inspect follow-up details.
+- Pipeline: display persisted stages and update lead stage through the API.
+- Tasks: create, assign, set a due date and priority, and complete work.
+- Dashboard: calculate metrics, current work, pipeline counts, and activity from MongoDB data.
+- Notifications: show assignments, lead changes, and upcoming or overdue task work.
+- Search and settings: use real routes and protected API data.
 
-- Customers: owner, contact details, activity history, and relationship context.
-- Leads: source, stage, value, owner, and conversion path.
-- Tasks: due date, priority, related record, assignment, and completion state.
-- Pipeline: stage movement with a clear next action on every active opportunity.
-- Dashboard: focus queue, pipeline summary, recent activity, and quick actions.
-- Notifications: visible changes that require a person to respond.
-- Access: role-aware API enforcement for Admin, Sales Manager, and Sales Executive.
-- Foundations: documented MongoDB schema, JWT auth, validation, rate limiting, deployment notes, and honest empty/error states.
+## Quality bar
 
-## Visual direction
-
-The current implementation follows the CRM360 Figma exploration at `docs/figma-crm360-exploration.png` and the linked Figma board. The visual language is deliberately calm and editorial: near-white surfaces, navy structure, indigo action color, green status signals, and compact data previews. Stitch-style generation can help explore alternate compositions, while React remains the source of truth for the working product.
-
-## Verification gap
-
-The frontend build and server smoke tests can run without external credentials. Full registration, login, and record persistence still require a running MongoDB instance and the server environment in `server/.env`. This is an environment dependency, not a UI success claim.
+No public page presents mock records as live data. No product claim exists without a supporting route, API behavior, or security control. Every visible CTA is tested for a meaningful path, and keyboard, screen-reader labels, contrast, responsive layout, and reduced-motion behavior are checked before release.

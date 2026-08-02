@@ -1,6 +1,9 @@
 node_modules/
 dist/
 coverage/
+client/artifacts/
+client/test-results/
+client/playwright-report/
 .env
 .env.*
 !.env.example

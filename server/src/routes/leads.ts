@@ -36,10 +36,18 @@ router.get('/:id', asyncHandler(async (req, res) => {
 router.patch('/:id', validate(z.object({ body: leadFields.partial() })), asyncHandler(async (req, res) => {
   const current = await Lead.findOne({ _id: req.params.id, ...scope(req) }); if (!current) throw new AppError('Lead not found', 404)
   if (canSeeAll(req.user!.role) && req.body.assignedTo && !(await User.exists({ _id: req.body.assignedTo, active: true }))) throw new AppError('Assigned teammate not found', 400)
+  const reassigned = canSeeAll(req.user!.role) && Boolean(req.body.assignedTo) && current.assignedTo.toString() !== req.body.assignedTo
   const updates = { ...req.body, ...(req.body.email ? { email: normalizeEmail(req.body.email) } : {}) }
   if (!canSeeAll(req.user!.role)) delete updates.assignedTo
   const lead = await Lead.findByIdAndUpdate(current._id, updates, { new: true, runValidators: true }).populate('assignedTo', 'name role')
   if (!lead) throw new AppError('Lead not found', 404)
+  if (reassigned) {
+    const recipient = (lead.assignedTo as unknown as { _id: string })._id.toString()
+    await Promise.all([
+      logActivity({ type: 'lead_reassigned', description: `Reassigned ${lead.name}`, actor: req.user!.id, lead: lead._id.toString() }),
+      notify({ recipient, type: 'lead_assigned', title: 'Lead assigned', message: `${lead.name} is now assigned to you`, relatedEntityType: 'lead', relatedEntityId: lead._id.toString() }),
+    ])
+  }
   if (req.body.stage && req.body.stage !== current.stage) {
     await logActivity({ type: 'stage_changed', description: `Moved ${lead.name} from ${current.stage} to ${lead.stage}`, actor: req.user!.id, lead: lead._id.toString(), metadata: { from: current.stage, to: lead.stage } })
     await notify({ recipient: (lead.assignedTo as unknown as { _id: string })._id.toString(), type: 'lead_stage_changed', title: 'Lead stage updated', message: `${lead.name} moved to ${lead.stage}`, relatedEntityType: 'lead', relatedEntityId: lead._id.toString() })
