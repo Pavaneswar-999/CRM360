@@ -34,7 +34,7 @@ The seed script creates fictional accounts for local demonstration. The credenti
 
 ## Deployment
 
-The intended production targets are MongoDB Atlas, Render, and Vercel. Follow `docs/DEPLOYMENT.md` for environment variables, CORS, health checks, SPA fallback, and smoke tests.
+The primary production path is MongoDB Atlas plus one Render Blueprint containing both the API and frontend. Vercel remains an optional frontend alternative. Follow `docs/DEPLOYMENT.md` for environment variables, CORS, health checks, SPA fallback, and smoke tests.
 
 ## Known limitations
 
