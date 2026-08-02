@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Check, Mail, Save, Search, ShieldCheck, Users } from 'lucide-react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router'
 import { api, request } from '../api'
 import { useAuth } from '../auth'
 import type { Customer, Lead, Task, User } from '../types'

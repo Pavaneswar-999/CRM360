@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { ArrowUpRight, CalendarClock, CheckCircle2, ChevronRight, CircleAlert, Clock3, DollarSign, ListTodo, Plus, Target, Users, type LucideIcon } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { api, request } from '../api'
 import type { DashboardData, LeadStage, Task } from '../types'
 import { Badge, toneFor } from '../components/Status'

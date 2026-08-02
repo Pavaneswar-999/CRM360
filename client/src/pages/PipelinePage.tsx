@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ArrowRight, CalendarClock, CircleAlert, Plus, Target } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { api, request } from '../api'
 import type { Lead, LeadStage } from '../types'
 import { currency, dateLabel, isOverdue } from '../utils'

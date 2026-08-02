@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 import { Bell, Building2, CheckSquare, ChevronRight, CircleHelp, LayoutDashboard, LogOut, Menu, Search, Settings, Target, Users, X } from 'lucide-react'
 import { Logo } from './Logo'
 import { useAuth } from '../auth'

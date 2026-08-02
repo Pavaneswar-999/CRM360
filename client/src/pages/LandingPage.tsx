@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Activity, ArrowRight, Building2, CheckCircle2, ChevronRight, CircleDot, GraduationCap, HeartHandshake, Layers3, Route, SearchCheck, ShieldCheck, Sparkles, Target, UsersRound } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { Logo } from '../components/Logo'
 const RelationshipScene = lazy(() => import('../components/RelationshipScene').then((module) => ({ default: module.RelationshipScene })))
 
