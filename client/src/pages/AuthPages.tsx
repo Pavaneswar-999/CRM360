@@ -58,7 +58,10 @@ export function LoginPage() {
 export function RegisterPage() {
   const { register, handleSubmit, formState: { isSubmitting, errors }, setError } = useForm<{ name: string; email: string; password: string }>()
   const { register: signUp } = useAuth(); const navigate = useNavigate()
-  const onSubmit = async (data: { name: string; email: string; password: string }) => { try { await signUp(data.name, data.email, data.password); navigate('/app') } catch (error) { setError('root', { message: authError(error, 'Unable to create your account.') }) } }
+  const [params] = useSearchParams()
+  const requestedNext = params.get('next')
+  const nextPath = ['/app/pipeline', '/app/customers', '/app/tasks'].includes(requestedNext || '') ? requestedNext! : '/app'
+  const onSubmit = async (data: { name: string; email: string; password: string }) => { try { await signUp(data.name, data.email, data.password); navigate(nextPath) } catch (error) { setError('root', { message: authError(error, 'Unable to create your account.') }) } }
   return <AuthLayout title="Start with clarity" intro="Create a workspace for the relationships and follow-ups your team cannot afford to lose."><form className="auth-form" onSubmit={handleSubmit(onSubmit)} noValidate>
     <Field label="Full name" error={errors.name?.message} required><input autoComplete="name" placeholder="Your name" {...register('name', { required: 'Your name is required', minLength: { value: 2, message: 'Use at least 2 characters' } })} /></Field>
     <Field label="Work email" error={errors.email?.message} required><input type="email" autoComplete="email" placeholder="you@company.com" {...register('email', { required: 'Your email is required' })} /></Field>
