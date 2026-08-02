@@ -26,6 +26,12 @@ CRM360 implements the core CRM workflows described in the project brief. The pro
 Frontend: `http://localhost:5173`  
 API: `http://localhost:5000`
 
+## Live demo
+
+- [Open the CRM360 frontend](https://crm360-web-su62.onrender.com)
+- [API health](https://crm360-api-y6vx.onrender.com/api/health)
+- [API readiness and database health](https://crm360-api-y6vx.onrender.com/api/health/ready)
+
 If the browser shows “CRM360 API is offline,” the frontend is working but the API or MongoDB is not running. This machine currently has neither `mongod` on PATH nor a MongoDB Windows service, so account creation cannot persist until `MONGODB_URI` points to a running local or Atlas database.
 
 ## Demo credentials
@@ -34,7 +40,7 @@ The seed script creates fictional accounts for local demonstration. The credenti
 
 ## Deployment
 
-The primary production path is MongoDB Atlas plus one Render Blueprint containing both the API and frontend. Vercel remains an optional frontend alternative. Follow `docs/DEPLOYMENT.md` for environment variables, CORS, health checks, SPA fallback, and smoke tests.
+The deployed showcase uses MongoDB Atlas plus one Render Blueprint containing both the API and frontend. Vercel remains an optional frontend alternative. Follow `docs/DEPLOYMENT.md` for environment variables, CORS, health checks, SPA fallback, and smoke tests.
 
 ## Current limitations
 

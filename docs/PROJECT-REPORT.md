@@ -22,7 +22,7 @@ Functional requirements cover authentication, role management, customer/lead/tas
 
 ## Technology stack and architecture
 
-React/Vite/TypeScript powers the frontend. Express/Node/TypeScript exposes REST APIs. Mongoose maps the domain models to MongoDB Atlas. Vercel, Render, and Atlas are the target deployment services. See `ARCHITECTURE.md` and `DATABASE-SCHEMA.md`.
+React/Vite/TypeScript powers the frontend. Express/Node/TypeScript exposes REST APIs. Mongoose maps the domain models to MongoDB Atlas. Render provides the verified showcase deployment, while Vercel remains an optional frontend alternative. See `ARCHITECTURE.md` and `DATABASE-SCHEMA.md`.
 
 ## Module descriptions
 
@@ -45,7 +45,7 @@ Bcrypt password hashing, JWT middleware, backend RBAC, ownership checks, Zod val
 
 ## Testing and deployment
 
-The actual test/build outputs must be appended to the final submission record after running the commands in `TESTING.md`. Deployment follows `DEPLOYMENT.md`; live URLs are only marked complete after smoke testing.
+The test/build outputs are documented by the repository checks and `TESTING.md`. Deployment follows `DEPLOYMENT.md`; the public frontend and API readiness endpoints have been verified after deployment.
 
 ## Limitations and future scope
 
