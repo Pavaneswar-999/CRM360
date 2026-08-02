@@ -7,3 +7,4 @@
 - Helmet, credentialed allowlisted CORS, JSON body limits, input normalization, Zod validation, safe error responses, readiness checks, and stricter authentication rate limiting are enabled.
 - Secrets belong in environment variables. `.env` files are ignored and `.env.example` contains placeholders only.
 - For production, use HTTPS, a strong rotated `JWT_SECRET`, a restricted MongoDB Atlas network policy, a specific `CLIENT_URL`, and a real email provider before enabling email reset delivery.
+- Production startup now requires `APP_URL` and complete SMTP settings so password reset cannot silently deploy without a delivery path.

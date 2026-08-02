@@ -23,5 +23,17 @@ services:
         value: 14
       - key: CLIENT_URL
         sync: false
+      - key: APP_URL
+        sync: false
       - key: RESET_TOKEN_TTL_MINUTES
         value: 30
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SMTP_FROM
+        sync: false

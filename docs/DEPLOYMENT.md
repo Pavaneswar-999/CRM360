@@ -13,7 +13,7 @@ Create a Node web service rooted at `server/`.
 
 - Build command: `npm install && npm run build`
 - Start command: `npm start`
-- Environment: `NODE_ENV=production`, `PORT` supplied by Render, `MONGODB_URI`, a generated `JWT_SECRET`, `JWT_EXPIRES_IN=1h`, `JWT_ISSUER=crm360-api`, `JWT_AUDIENCE=crm360-web`, `REFRESH_TOKEN_TTL_DAYS=14`, `CLIENT_URL=<Vercel URL>`, `RESET_TOKEN_TTL_MINUTES=30`
+- Environment: `NODE_ENV=production`, `PORT` supplied by Render, `MONGODB_URI`, a generated `JWT_SECRET`, `JWT_EXPIRES_IN=1h`, `JWT_ISSUER=crm360-api`, `JWT_AUDIENCE=crm360-web`, `REFRESH_TOKEN_TTL_DAYS=14`, `CLIENT_URL=<Vercel URL>`, `APP_URL=<Vercel URL>`, `RESET_TOKEN_TTL_MINUTES=30`, and SMTP settings (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_FROM`) for the real password-reset email flow.
 - Verify: `GET https://<render-host>/api/health` and `GET https://<render-host>/api/health/ready` (the readiness endpoint must return 200 only after MongoDB is connected).
 
 ## Vercel frontend
@@ -24,6 +24,14 @@ Create a Vercel project rooted at `client/`.
 - Output directory: `dist`
 - Environment: `VITE_API_BASE_URL=https://<render-host>/api`
 - Set `VITE_API_BASE_URL=https://<render-host>/api`, enable SPA fallback so React Router refreshes resolve to `index.html`, and allow credentials for the HttpOnly refresh cookie.
+
+## Privacy and secret checklist
+
+- Set the GitHub repository visibility to **Private** and make `main` the default deployment branch.
+- Keep MongoDB, JWT, SMTP, and hosting credentials only in Render/Vercel environment variables or secret stores.
+- Use a least-privilege MongoDB user, TLS connection string, and a restricted Atlas network policy appropriate for the Render service.
+- Do not enable public database access as a permanent shortcut. If a provider requires broad egress access for a free-tier deployment, compensate with a long random database password, least-privilege role, TLS, and a migration to restricted network access before production data is added.
+- Keep Vercel project logs and Render logs access-controlled; never log request bodies, passwords, reset tokens, cookies, or authorization headers.
 
 ## Final smoke test
 

@@ -17,7 +17,7 @@ This project is being built as a submission-ready MERN MVP. The implementation i
 
 ## Run locally
 
-1. Copy `server/.env.example` to `server/.env` and set `MONGODB_URI` and `JWT_SECRET`.
+1. Copy `server/.env.example` to `server/.env` and set `MONGODB_URI` and `JWT_SECRET`. For production password reset, also configure `APP_URL` and the SMTP variables.
 2. Copy `client/.env.example` to `client/.env` if the API is not running on the default local URL.
 3. Install dependencies: `npm run install:all`
 4. Seed demo data: `npm run seed`

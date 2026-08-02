@@ -9,6 +9,7 @@ import { AppError, asyncHandler } from '../middleware/error.js'
 import { validate } from '../middleware/validate.js'
 import { normalizeEmail } from '../utils/normalize.js'
 import { clearRefreshCookie, readCookie, setRefreshCookie } from '../utils/cookies.js'
+import { sendPasswordResetEmail } from '../utils/mailer.js'
 
 const router = Router()
 const registerSchema = z.object({ body: z.object({ name: z.string().trim().min(2).max(80), email: z.email(), password: z.string().min(8).max(100) }) })
@@ -77,8 +78,9 @@ router.post('/forgot-password', validate(forgotSchema), asyncHandler(async (req,
   const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex')
   await PasswordResetToken.deleteMany({ user: user._id, usedAt: { $exists: false } })
   await PasswordResetToken.create({ user: user._id, tokenHash, expiresAt: new Date(Date.now() + env.RESET_TOKEN_TTL_MINUTES * 60 * 1000) })
-  const data: { message: string; resetToken?: string } = { message: 'A development reset token was created. No email was sent because no email provider is configured.' }
+  const data: { message: string; resetToken?: string } = { message: 'If an account exists, a password reset email has been sent.' }
   if (env.NODE_ENV !== 'production') data.resetToken = rawToken
+  else await sendPasswordResetEmail({ to: user.email, name: user.name, token: rawToken })
   res.json({ success: true, data })
 }))
 
