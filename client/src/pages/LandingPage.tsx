@@ -92,18 +92,23 @@ export function LandingPage() {
       </section>
 
       <section id="how-it-works" className="landing-section workflow-story section-wrap">
-        <div className="editorial-heading" data-reveal>
-          <span className="eyebrow">A working sequence</span>
+        <div className="workflow-story-intro" data-reveal>
+          <div>
+            <span className="eyebrow">01 / A working sequence</span>
+            <p>CRM360 keeps the record, owner, task, and change together—so the next action is clear without searching through messages.</p>
+          </div>
           <h2>Less hunting for context.<br /><em>More time moving work forward.</em></h2>
-          <p>CRM360 is built around the moments that keep a relationship moving: recording the lead, assigning the work, completing the follow-up, and seeing what changed.</p>
         </div>
-        <div className="story-list">
-          {workflow.map(({ index, icon: Icon, title, text, action, next }) => <article className="story-step" data-story-step key={index}>
-            <div className="story-number">{index}</div>
-            <div className="story-icon"><Icon size={19} /></div>
-            <div className="story-copy"><h3>{title}</h3><p>{text}</p></div>
-            <EntryLink className="story-link" next={next}>{action} <ArrowRight size={16} /></EntryLink>
-          </article>)}
+        <div className="workflow-stage" data-reveal>
+          <div className="workflow-stage-art" aria-hidden="true" />
+          <div className="story-list">
+            {workflow.map(({ index, icon: Icon, title, text, action, next }) => <article className="story-step" data-story-step key={index}>
+              <div className="story-number">{index}</div>
+              <div className="story-icon"><Icon size={19} /></div>
+              <div className="story-copy"><h3>{title}</h3><p>{text}</p></div>
+              <EntryLink className="story-link" next={next}>{action} <ArrowRight size={16} /></EntryLink>
+            </article>)}
+          </div>
         </div>
       </section>
 
@@ -120,8 +125,12 @@ export function LandingPage() {
             </div>
           </div>
           <div className="thread-scene-frame" data-reveal>
-            <span className="thread-scene-label">Relationship thread</span>
+            <div className="thread-scene-copy" aria-hidden="true">
+              <span className="thread-scene-label">Relationship thread</span>
+              <strong>Lead <i>→</i> Customer <i>→</i> Next task</strong>
+            </div>
             <Suspense fallback={<div className="relationship-scene-fallback" aria-hidden="true"><span /><span /><span /></div>}><RelationshipScene /></Suspense>
+            <div className="thread-scene-legend" aria-hidden="true"><span>Capture</span><span>Context</span><span>Action</span></div>
             <p>This visual is an abstract guide to how records connect. The CRM itself uses live database records after you sign in.</p>
           </div>
         </div>
