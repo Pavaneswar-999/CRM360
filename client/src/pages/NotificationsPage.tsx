@@ -7,7 +7,7 @@ type Notification = { _id: string; title: string; message: string; type: string;
 export function NotificationsPage() {
   const [items, setItems] = useState<Notification[]>([])
   const load = async () => { setItems((await request<{ items: Notification[] }>(api.get('/notifications'))).items) }
-  useEffect(() => { void load() }, [])
+  useEffect(() => { void load(); const timer = window.setInterval(() => void load(), 30000); return () => window.clearInterval(timer) }, [])
   const mark = async (id: string) => { await request(api.patch(`/notifications/${id}/read`)); await load() }
   const markAll = async () => { await request(api.post('/notifications/read-all')); await load() }
   return <div className="page-stack">

@@ -16,7 +16,7 @@ This is the completion checklist for the problem statement. “Implemented” me
 | Pipeline | Stage enum and scoped stage updates | `/app/pipeline` | Implemented; stage changes persist through API. |
 | Tasks | CRUD, assignment, due state, completion | `/app/tasks`, dashboard quick add | Implemented. |
 | Dashboard insights | Aggregations for metrics, stages, tasks, activity, focus queue | `/app` | Implemented against live MongoDB data. |
-| Notifications | Assignment/stage events and read state | `/app/notifications` | Implemented; refresh on navigation and controlled polling are the current delivery method. |
+| Notifications | Assignment/stage events, upcoming/overdue task deadlines, and read state | `/app/notifications` | Implemented; deadline notifications are persisted when due and surfaced through controlled polling. |
 | Responsive UI | CSS breakpoints, mobile nav, tables scroll safely | All frontend routes | Implemented and must be verified at 375/768/1024/1440px. |
 | Deployment | Render API, MongoDB Atlas, Render frontend, optional Vercel config | `render.yaml`, `client/vercel.json` | Implemented and verified: live frontend, API health, and MongoDB readiness endpoints are available. |
 
