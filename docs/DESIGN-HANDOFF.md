@@ -21,10 +21,10 @@ Screens:
 
 Visual direction:
 - Editorial clarity combined with modern SaaS precision.
-- Warm near-white canvas, white surfaces, deep navy ink, indigo primary, emerald success, amber warning, restrained violet secondary.
+- Warm paper canvas, cream surfaces, deep navy ink, copper primary signal, blue secondary structure, emerald success, and amber warning.
 - Manrope for headings and DM Sans for body copy.
 - 4px spacing rhythm; 14px cards; subtle tinted shadows; no heavy glassmorphism.
-- Use asymmetric layouts and an original relationship/orbital motif only on the public landing page.
+- Use asymmetric layouts, one canonical relationship-atlas image, and an original relationship/orbital motif only on the public landing page. Do not animate between unrelated generated frames.
 
 Product behavior:
 - Clear loading, empty, error, hover, focus, disabled, and destructive-confirmation states.

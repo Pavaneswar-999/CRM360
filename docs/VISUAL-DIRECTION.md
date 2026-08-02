@@ -18,13 +18,13 @@ CRM360 uses a “Relationship Atlas” visual language: a calm working surface w
 - Logo: a custom relationship-node mark with a stable silhouette at 16–32px.
 - Display type: Manrope for decisive, compact page and hero headlines.
 - Reading type: DM Sans for forms, tables, helper text, and long descriptions.
-- Palette: ink `#17263B`, navy `#142C4B`, CRM blue `#3C64D8`, active green `#209D78`, warning amber `#C18A2D`, alert red `#C95868`, mist `#F6F8FB`.
+- Palette: warm paper `#F2F0EA`, surface `#FFFDF8`, ink `#17233A`, deep navy `#101B31`, copper `#C5744D`, supporting blue `#5570D7`, success `#258B70`, warning `#BA7D2D`, alert red `#C55362`.
 - Tagline: “Every relationship. Every next step.”
-- Imagery: data-led relationship scenes, restrained WebGL nodes, soft blue-white surfaces, and quiet texture. No decorative image is allowed to imply a feature that does not exist.
+- Imagery: one canonical relationship-atlas image, restrained WebGL nodes, deep navy depth, copper signal lines, and quiet paper texture. No decorative image is allowed to imply a feature that does not exist; independent generated frames are never crossfaded as if they were one object.
 - Layout: 12-column marketing compositions, asymmetrical feature grids, 8px spacing rhythm, 44px minimum interactive controls, and a readable content width.
 - Texture: barely visible grain/radial light only; it must never reduce text contrast or compete with data.
 - Icons: Lucide for operational controls, custom inline SVG for the brand mark, and consistent semantic color treatment.
-- Style: editorial landing pages paired with dense, calm, permission-aware application surfaces.
+- Style: editorial landing pages paired with dense, calm, permission-aware application surfaces. The landing uses framed product views and module-specific calls to action so the page explains the product instead of presenting generic cards.
 
 ## Motion rules
 

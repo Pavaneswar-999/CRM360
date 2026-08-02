@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Bell, Building2, CheckSquare, ChevronRight, CircleHelp, LayoutDashboard, LogOut, Menu, Search, Settings, Target, Users, X } from 'lucide-react'
+import { Bell, Building2, CheckSquare, CircleHelp, KanbanSquare, LayoutDashboard, LogOut, Menu, Search, Settings, Target, Users, X } from 'lucide-react'
 import { NavLink, Outlet, useNavigate } from 'react-router'
 import { Logo } from './Logo'
 import { useAuth } from '../auth'
@@ -9,7 +9,7 @@ const links = [
   { to: '/app', label: 'Overview', icon: LayoutDashboard },
   { to: '/app/customers', label: 'Customers', icon: Building2 },
   { to: '/app/leads', label: 'Leads', icon: Target },
-  { to: '/app/pipeline', label: 'Pipeline', icon: ChevronRight },
+  { to: '/app/pipeline', label: 'Pipeline', icon: KanbanSquare },
   { to: '/app/tasks', label: 'Tasks', icon: CheckSquare },
 ]
 
@@ -37,7 +37,7 @@ export function AppShell() {
       <div className="sidebar-top"><Logo /><button className="icon-button mobile-only" onClick={() => setOpen(false)} aria-label="Close navigation"><X size={18} /></button></div>
       <div className="workspace-switch" aria-label="Current workspace">
         <span className="workspace-avatar">C</span>
-        <span><strong>CRM360 workspace</strong><small>{user?.role} view</small></span>
+        <span><strong>CRM360 workspace</strong><small>Single workspace · {user?.role} view</small></span>
       </div>
       <nav className="main-nav">{links.map(({ to, label, icon: Icon }) => <NavLink key={to} to={to} end={to === '/app'} onClick={() => setOpen(false)} className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}><Icon size={18} /><span>{label}</span></NavLink>)}</nav>
       <div className="nav-section-label">Workspace</div>

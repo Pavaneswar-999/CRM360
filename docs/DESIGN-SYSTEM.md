@@ -18,18 +18,19 @@ The mark is a central relationship node connected to three surrounding nodes. It
 
 | Token | Value | Role |
 | --- | --- | --- |
-| Canvas | `#F6F8FB` | Page background |
-| Surface | `#FFFFFF` | Elevated workspace surface |
-| Ink | `#17263B` | Primary text and headings |
-| Steel | `#53647A` | Supporting text and metadata |
-| Structure | `#D9E1EC` | Dividers and input borders |
-| Signal blue | `#3C64D8` | Single brand accent, links, active states |
-| Deep navy | `#142C4B` | Hero depth and authenticated navigation emphasis |
-| Success | `#218D70` | Positive state, never the only indicator |
-| Warning | `#B27D28` | Due soon and caution |
-| Danger | `#B64C5D` | Errors and overdue state |
+| Canvas | `#F2F0EA` | Warm paper background |
+| Surface | `#FFFDF8` | Elevated workspace surface |
+| Ink | `#17233A` | Primary text and headings |
+| Steel | `#68758A` | Supporting text and metadata |
+| Structure | `#D9DEE5` | Dividers and input borders |
+| Signal copper | `#C5744D` | Primary action, links, active public states |
+| Deep navy | `#101B31` | Hero depth and authenticated navigation |
+| Signal blue | `#5570D7` | Secondary structure and pipeline states |
+| Success | `#258B70` | Positive state, never the only indicator |
+| Warning | `#BA7D2D` | Due soon and caution |
+| Danger | `#C55362` | Errors and overdue state |
 
-The blue accent is controlled and desaturated. There are no neon gradients, purple glows, pure-black surfaces, or decorative colour changes between screens.
+Copper is the recognisable CRM360 signal. Navy provides depth; blue, green, amber, and red are reserved for product meaning. There are no neon gradients, purple glows, or decorative colour changes between screens.
 
 ## 4. Tagline and voice
 
@@ -39,13 +40,13 @@ Voice is calm, concrete, and accountable. Prefer “Review renewal health” ove
 
 ## 5. Brand imagery
 
-CRM360 imagery is the relationship graph: nodes, paths, focus queues, activity traces, and human-readable work states. The landing hero uses a lightweight WebGL network visualization with a static fallback; application pages use real product previews and data compositions. Do not use stock-photo wallpaper, broken remote images, or invented customer testimonials.
+CRM360 imagery is the relationship graph: nodes, paths, focus queues, activity traces, and human-readable work states. The landing hero uses one canonical original relationship-atlas image with a lightweight WebGL layer and static fallback. Application pages use real product previews and data compositions. Do not use stock-photo wallpaper, mismatched generated frames, broken remote images, or invented customer testimonials.
 
 ## 6. Layout system
 
-- Public pages use asymmetric editorial splits, a 1240px content rail, and one dominant action per section.
+- Public pages use asymmetric editorial splits, a 1240px content rail, framed product views, and one dominant action per section.
 - Auth pages use a 52/48 split: focused form on the left, evidence of product value on the right.
-- App pages use a fixed 250px sidebar, 72px top bar, and a content rail capped at 1540px.
+- App pages use a fixed 252px sidebar, 74px top bar, and a content rail capped at 1560px.
 - Data-heavy surfaces prefer structural dividers and whitespace over a wall of identical cards.
 - Below 768px every multi-column layout collapses to one column, with no horizontal scroll and 44px touch targets.
 
@@ -59,7 +60,7 @@ Lucide icons are used consistently at 16–20px with a 1.8–2px stroke. The cus
 
 ## 9. Design style
 
-**Relationship Atlas**: editorial clarity plus a precise operating instrument. Variance 7, motion 4, density 5. The landing page carries the visual signature; the app earns trust through readable hierarchy, fast states, useful empty states, and visible ownership. Motion uses transform/opacity, respects reduced motion, and never delays a user’s work.
+**Relationship Atlas / Quiet Signal**: warm editorial clarity plus a precise operating instrument. Variance 7, motion 4, density 6. The landing page carries the material signature; the app earns trust through readable hierarchy, fast states, useful empty states, and visible ownership. Motion uses transform/opacity, respects reduced motion, and never delays a user’s work.
 
 ## State rules
 

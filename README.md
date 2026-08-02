@@ -6,6 +6,8 @@ CRM360 is a focused customer relationship workspace for small teams. It keeps ev
 
 CRM360 implements the core CRM workflows described in the project brief. The product is centered on working, database-backed customer, lead, task, pipeline, and follow-up workflows rather than decorative dashboard content.
 
+The public experience uses the original **Relationship Atlas / Quiet Signal** direction: warm editorial type, deep navy structure, a copper action signal, and one canonical relationship visual. Landing-page previews are labelled examples; their calls to action open the corresponding real CRM module after registration.
+
 ## Structure
 
 - `client/` — React + Vite frontend

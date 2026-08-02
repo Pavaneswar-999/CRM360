@@ -25,6 +25,7 @@ function AuthLayout({ title, intro, children, side = true }: { title: string; in
     </div>
     {side && <div className="auth-aside">
       <div className="auth-aside-top"><span className="eyebrow">The operating layer for follow-through</span><span className="auth-status"><i /> Illustrative product preview</span></div>
+      <div className="auth-atlas-art" aria-hidden="true" />
       <div className="auth-product-preview" aria-label="Illustrative CRM360 focus queue preview">
         <div className="auth-preview-head"><div><span className="eyebrow">Example</span><strong>Focus queue</strong></div><span className="auth-preview-count">05</span></div>
         <div className="auth-preview-row auth-preview-row-alert"><span className="auth-preview-mark">!</span><div><strong>Follow up on proposal</strong><small>Example account · Overdue</small></div><b>Now</b></div>
@@ -60,7 +61,7 @@ export function RegisterPage() {
   const { register: signUp } = useAuth(); const navigate = useNavigate()
   const [params] = useSearchParams()
   const requestedNext = params.get('next')
-  const nextPath = ['/app/pipeline', '/app/customers', '/app/tasks'].includes(requestedNext || '') ? requestedNext! : '/app'
+  const nextPath = ['/app/pipeline', '/app/customers', '/app/leads', '/app/tasks'].includes(requestedNext || '') ? requestedNext! : '/app'
   const onSubmit = async (data: { name: string; email: string; password: string }) => { try { await signUp(data.name, data.email, data.password); navigate(nextPath) } catch (error) { setError('root', { message: authError(error, 'Unable to create your account.') }) } }
   return <AuthLayout title="Start with clarity" intro="Create a workspace for the relationships and follow-ups your team cannot afford to lose."><form className="auth-form" onSubmit={handleSubmit(onSubmit)} noValidate>
     <Field label="Full name" error={errors.name?.message} required><input autoComplete="name" placeholder="Your name" {...register('name', { required: 'Your name is required', minLength: { value: 2, message: 'Use at least 2 characters' } })} /></Field>
