@@ -45,5 +45,5 @@ The deployed showcase uses MongoDB Atlas plus one Render Blueprint containing bo
 ## Current limitations
 
 - In local development without SMTP, password reset returns a safe reset link for testing. Production sends reset links through the configured email provider.
-- Notifications refresh when the page opens and through controlled polling; real-time sockets are not currently included.
+- Notifications refresh when the page opens and through controlled polling. Assignment, stage, upcoming-deadline, and overdue-deadline notifications are persisted; real-time sockets are not currently included.
 - Pipeline stages use explicit controls. Drag-and-drop can be added later after the interaction and accessibility details are verified.

@@ -24,12 +24,12 @@ function AuthLayout({ title, intro, children, side = true }: { title: string; in
       {children}
     </div>
     {side && <div className="auth-aside">
-      <div className="auth-aside-top"><span className="eyebrow">The operating layer for follow-through</span><span className="auth-status"><i /> Live workspace pattern</span></div>
-      <div className="auth-product-preview" aria-label="CRM360 focus queue preview">
-        <div className="auth-preview-head"><div><span className="eyebrow">Today</span><strong>Focus queue</strong></div><span className="auth-preview-count">05</span></div>
-        <div className="auth-preview-row auth-preview-row-alert"><span className="auth-preview-mark">!</span><div><strong>Follow up on proposal</strong><small>Northstar Studio · 1 day late</small></div><b>Now</b></div>
-        <div className="auth-preview-row"><span className="auth-preview-mark auth-preview-mark-blue"><Check size={13} /></span><div><strong>Confirm buying committee</strong><small>Greenline Logistics · Qualified</small></div><b>Fri</b></div>
-        <div className="auth-preview-row"><span className="auth-preview-mark auth-preview-mark-green"><Check size={13} /></span><div><strong>Review renewal health</strong><small>Coregrid Labs · Customer</small></div><b>Mon</b></div>
+      <div className="auth-aside-top"><span className="eyebrow">The operating layer for follow-through</span><span className="auth-status"><i /> Illustrative product preview</span></div>
+      <div className="auth-product-preview" aria-label="Illustrative CRM360 focus queue preview">
+        <div className="auth-preview-head"><div><span className="eyebrow">Example</span><strong>Focus queue</strong></div><span className="auth-preview-count">05</span></div>
+        <div className="auth-preview-row auth-preview-row-alert"><span className="auth-preview-mark">!</span><div><strong>Follow up on proposal</strong><small>Example account · Overdue</small></div><b>Now</b></div>
+        <div className="auth-preview-row"><span className="auth-preview-mark auth-preview-mark-blue"><Check size={13} /></span><div><strong>Confirm buying committee</strong><small>Example account · Qualified</small></div><b>Fri</b></div>
+        <div className="auth-preview-row"><span className="auth-preview-mark auth-preview-mark-green"><Check size={13} /></span><div><strong>Review renewal health</strong><small>Example account · Customer</small></div><b>Mon</b></div>
         <div className="auth-preview-footer"><span>Ownership is visible</span><span>Next action is never hidden</span></div>
       </div>
       <div className="auth-aside-copy"><span className="eyebrow">Every relationship. Every next step.</span><h2>Clarity for the work between the meetings.</h2><p>CRM360 connects the person, conversation, opportunity, task, and outcome so the team can act with context.</p><div className="auth-capabilities"><span><Check size={14} /> Customer context</span><span><Check size={14} /> Pipeline momentum</span><span><Check size={14} /> Permission-aware work</span></div></div>
