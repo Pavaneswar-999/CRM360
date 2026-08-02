@@ -1,0 +1,1 @@
+export function Field({ label, error, children, required = false }: { label: string; error?: string; children: React.ReactNode; required?: boolean }) { return <label className="field"><span>{label}{required && <em> *</em>}</span>{children}{error && <small className="field-error">{error}</small>}</label> }

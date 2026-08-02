@@ -1,0 +1,2 @@
+export function Badge({ children, tone = 'neutral' }: { children: React.ReactNode; tone?: string }) { return <span className={`badge badge-${tone.toLowerCase().replaceAll(' ', '-')}`}>{children}</span> }
+export const toneFor = (value: string) => ({ Won: 'success', Active: 'success', Completed: 'success', Qualified: 'accent', 'Proposal Sent': 'accent', Contacted: 'warning', 'At Risk': 'warning', Urgent: 'danger', Lost: 'danger', Pending: 'neutral', New: 'neutral', 'In Progress': 'accent', High: 'danger', Medium: 'warning', Low: 'neutral' }[value] || 'neutral')
