@@ -102,6 +102,7 @@ export function DashboardPage() {
   if (!data) return <div className="page-loader"><span className="spinner" /> Loading your workspace...</div>
 
   const { metrics } = data
+  const hasRecords = metrics.totalCustomers + metrics.activeLeads + metrics.pendingTasks + metrics.wonDeals > 0
 
   return (
     <div className="page-stack">
@@ -115,6 +116,12 @@ export function DashboardPage() {
           <Plus size={17} /> Add task
         </button>
       </div>
+
+      {!hasRecords && <section className="welcome-rail" aria-label="Get started with CRM360">
+        <div className="welcome-rail-mark"><span>01</span><span>02</span><span>03</span></div>
+        <div className="welcome-rail-copy"><span className="eyebrow">Your first three moves</span><h2>Turn an empty workspace into a working rhythm.</h2><p>Start with one relationship, give it an owner, then make the next step visible.</p></div>
+        <div className="welcome-rail-actions"><Link to="/app/customers">Add a customer <ArrowUpRight size={15} /></Link><Link to="/app/leads">Create a lead <ArrowUpRight size={15} /></Link><Link to="/app/tasks">Plan a task <ArrowUpRight size={15} /></Link></div>
+      </section>}
 
       <div className="metric-grid">
         <Metric label="Total customers" value={metrics.totalCustomers} change="Relationships in motion" icon={Users} tone="blue" />
