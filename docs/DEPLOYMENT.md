@@ -16,14 +16,17 @@ Create a Node web service rooted at `server/`.
 - Environment: `NODE_ENV=production`, `PORT` supplied by Render, `MONGODB_URI`, a generated `JWT_SECRET`, `JWT_EXPIRES_IN=1h`, `JWT_ISSUER=crm360-api`, `JWT_AUDIENCE=crm360-web`, `REFRESH_TOKEN_TTL_DAYS=14`, `CLIENT_URL=<Vercel URL>`, `APP_URL=<Vercel URL>`, `RESET_TOKEN_TTL_MINUTES=30`, and SMTP settings (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_FROM`) for the real password-reset email flow.
 - Verify: `GET https://<render-host>/api/health` and `GET https://<render-host>/api/health/ready` (the readiness endpoint must return 200 only after MongoDB is connected).
 
-## Vercel frontend
+## Render frontend
 
-Create a Vercel project rooted at `client/`.
+The repository Blueprint now creates both services in the same Render workspace:
 
-- Build command: `npm run build`
-- Output directory: `dist`
-- Environment: `VITE_API_BASE_URL=https://<render-host>/api`
-- Set `VITE_API_BASE_URL=https://<render-host>/api`, enable SPA fallback so React Router refreshes resolve to `index.html`, and allow credentials for the HttpOnly refresh cookie.
+- `crm360-api` — Express web service rooted at `server/`
+- `crm360-web` — Render Static Site rooted at `client/`
+
+- The frontend build receives the API's Render external URL through Blueprint service wiring. The client normalizes that origin to `/api`.
+- The API receives the frontend's Render external URL as both `CLIENT_URL` and `APP_URL`.
+- SPA fallback is defined in `render.yaml` so React Router refreshes resolve to `index.html`.
+- No Vercel project is required for the one-workspace deployment path. `client/vercel.json` remains available only as an optional alternative.
 
 ## Privacy and secret checklist
 

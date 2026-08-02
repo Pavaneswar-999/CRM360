@@ -22,9 +22,15 @@ services:
       - key: REFRESH_TOKEN_TTL_DAYS
         value: 14
       - key: CLIENT_URL
-        sync: false
+        fromService:
+          type: web
+          name: crm360-web
+          envVarKey: RENDER_EXTERNAL_URL
       - key: APP_URL
-        sync: false
+        fromService:
+          type: web
+          name: crm360-web
+          envVarKey: RENDER_EXTERNAL_URL
       - key: RESET_TOKEN_TTL_MINUTES
         value: 30
       - key: SMTP_HOST
@@ -37,3 +43,20 @@ services:
         sync: false
       - key: SMTP_FROM
         sync: false
+  - type: web
+    name: crm360-web
+    runtime: static
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    autoDeployTrigger: checksPass
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: crm360-api
+          envVarKey: RENDER_EXTERNAL_URL
