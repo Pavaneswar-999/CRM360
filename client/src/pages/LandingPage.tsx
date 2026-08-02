@@ -1,4 +1,4 @@
-import { lazy, Suspense, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import {
   ArrowDownRight,
   ArrowRight,
@@ -14,8 +14,6 @@ import {
 import { Link } from 'react-router'
 import { LandingMotion } from '../components/LandingMotion'
 import { Logo } from '../components/Logo'
-
-const RelationshipScene = lazy(() => import('../components/RelationshipScene').then((module) => ({ default: module.RelationshipScene })))
 
 const workflow = [
   {
@@ -92,23 +90,21 @@ export function LandingPage() {
       </section>
 
       <section id="how-it-works" className="landing-section workflow-story section-wrap">
-        <div className="workflow-story-intro" data-reveal>
-          <div>
-            <span className="eyebrow">01 / A working sequence</span>
-            <p>CRM360 keeps the record, owner, task, and change together—so the next action is clear without searching through messages.</p>
+        <div className="editorial-heading" data-reveal>
+          <div className="workflow-editorial-aside">
+            <span className="eyebrow">A working sequence</span>
+            <div className="workflow-inset-art" aria-hidden="true" />
+            <p>CRM360 is built around the moments that keep a relationship moving: recording the lead, assigning the work, completing the follow-up, and seeing what changed.</p>
           </div>
           <h2>Less hunting for context.<br /><em>More time moving work forward.</em></h2>
         </div>
-        <div className="workflow-stage" data-reveal>
-          <div className="workflow-stage-art" aria-hidden="true" />
-          <div className="story-list">
-            {workflow.map(({ index, icon: Icon, title, text, action, next }) => <article className="story-step" data-story-step key={index}>
-              <div className="story-number">{index}</div>
-              <div className="story-icon"><Icon size={19} /></div>
-              <div className="story-copy"><h3>{title}</h3><p>{text}</p></div>
-              <EntryLink className="story-link" next={next}>{action} <ArrowRight size={16} /></EntryLink>
-            </article>)}
-          </div>
+        <div className="story-list">
+          {workflow.map(({ index, icon: Icon, title, text, action, next }) => <article className="story-step" data-story-step key={index}>
+            <div className="story-number">{index}</div>
+            <div className="story-icon"><Icon size={19} /></div>
+            <div className="story-copy"><h3>{title}</h3><p>{text}</p></div>
+            <EntryLink className="story-link" next={next}>{action} <ArrowRight size={16} /></EntryLink>
+          </article>)}
         </div>
       </section>
 
@@ -125,13 +121,14 @@ export function LandingPage() {
             </div>
           </div>
           <div className="thread-scene-frame" data-reveal>
-            <div className="thread-scene-copy" aria-hidden="true">
-              <span className="thread-scene-label">Relationship thread</span>
-              <strong>Lead <i>→</i> Customer <i>→</i> Next task</strong>
+            <span className="thread-scene-label">Relationship map</span>
+            <div className="relationship-map" role="img" aria-label="Static map linking a lead, a customer, and a task">
+              <svg aria-hidden="true" viewBox="0 0 600 320" preserveAspectRatio="none"><path d="M107 219 C 181 219, 186 116, 286 116 S 379 230, 484 230" /><path d="M108 219 C 220 219, 303 253, 484 230" /><circle cx="107" cy="219" r="5" /><circle cx="286" cy="116" r="5" /><circle cx="484" cy="230" r="5" /></svg>
+              <span className="relationship-node relationship-node-lead" aria-hidden="true">Lead</span>
+              <span className="relationship-node relationship-node-customer" aria-hidden="true">Customer</span>
+              <span className="relationship-node relationship-node-task" aria-hidden="true">Next task</span>
             </div>
-            <Suspense fallback={<div className="relationship-scene-fallback" aria-hidden="true"><span /><span /><span /></div>}><RelationshipScene /></Suspense>
-            <div className="thread-scene-legend" aria-hidden="true"><span>Capture</span><span>Context</span><span>Action</span></div>
-            <p>This visual is an abstract guide to how records connect. The CRM itself uses live database records after you sign in.</p>
+            <p>Lead, customer, and task records stay connected in the same working history after you sign in.</p>
           </div>
         </div>
       </section>
