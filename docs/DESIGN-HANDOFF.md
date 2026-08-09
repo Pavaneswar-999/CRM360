@@ -19,15 +19,15 @@ CRM360 is an operational CRM for teams that need to see the next action without 
 
 ## Canonical visual asset
 
-`client/public/crm360-signal-room-hero.png` is the single approved generated image. It is text-free and depicts layered index cards and task tabs with a quiet citron path. It contains no people, screens, logos, charts, planets, spheres, satellites, or orbit lines.
+`client/public/crm360-signal-room-hero.png` is the main approved image. It is text-free and depicts layered index cards and task tabs with a quiet citron path. `client/public/crm360-workflow-inset.png` is the separate workflow inset. Both contain no people, screens, logos, charts, planets, spheres, satellites, or orbit lines.
 
-The landing hero, authentication backdrop, and final landing callout use controlled crops of this same image with CSS overlays. Do not generate separate start/end images or crossfade different generated scenes. All text, buttons, labels, and meaningful content remain live HTML.
+The landing hero, authentication backdrop, and final landing callout use controlled crops of the main image with CSS overlays. The workflow inset remains separate and is not used as a background. All text, buttons, labels, and meaningful content remain live HTML.
 
 ## Motion and interaction rules
 
 - Lenis and GSAP are limited to the public landing page. They enhance scroll rhythm but never hide content or replace native keyboard scrolling.
 - Framer Motion is limited to short route transitions in authentication and the app.
-- The lower landing enhancement is a contained Three.js scene of rectangular record planes and connection strokes. It has a static fallback and contains no essential information.
+- The lower landing section uses a static, accessible relationship map linking a lead, a customer, and a task. It contains no essential information that is unavailable in the surrounding text.
 - `prefers-reduced-motion` disables nonessential movement.
 - Every visible link, button, filter, search field, and form must carry out its stated action. Remove an element if the product cannot support it.
 
@@ -40,7 +40,7 @@ Write plainly and tie claims to existing behavior. Prefer “Assignments and tas
 1. Check the landing page, auth pages, dashboard, and record management at 375px, 768px, 1024px, and 1440px.
 2. Confirm the primary action on every screen leads to the correct route or API operation.
 3. Check focus visibility, labels, keyboard navigation, contrast, loading, empty, error, success, and permission states.
-4. Confirm the product still works when the Three.js canvas is unavailable or motion is reduced.
+4. Confirm the product still works with motion reduced or disabled.
 5. Use Playwright screenshots and Axe scans as a guardrail; validate real CRUD flows against the deployed API before presenting the site.
 
 ## Reference practice

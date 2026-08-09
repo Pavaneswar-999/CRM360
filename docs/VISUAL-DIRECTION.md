@@ -8,7 +8,7 @@ CRM360 pairs a high-contrast editorial public experience with an efficient appli
 
 ### Visual ingredients
 
-- A text-free master image of tactile record cards and task tabs, placed behind live text with strong contrast.
+- A text-free main image of tactile record cards and task tabs, placed behind live text with strong contrast, plus one separate workflow inset.
 - Large Manrope headings with deliberate line breaks, supported by small DM Mono labels.
 - Mineral bone, carbon, moss, and a single muted citron accent.
 - Ruled-grid and paper-grain texture that stays behind content.
@@ -29,7 +29,7 @@ CRM360 pairs a high-contrast editorial public experience with an efficient appli
 
 - Landing sections use subtle GSAP transforms and Lenis scroll smoothing. Content remains visible without JavaScript.
 - App/auth use short Framer Motion transitions only.
-- The optional Three.js scene is a lower-page visual detail: connected rectangular planes with a static fallback.
+- The lower-page relationship map uses connected record labels and static thread strokes.
 - Movement never blocks reading, typing, scrolling, keyboard use, or route navigation.
 
 ### Visual QA

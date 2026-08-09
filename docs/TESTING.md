@@ -21,7 +21,7 @@ The server Vitest suite checks the safe health response, authentication protecti
 - Server type check: passed.
 - Client type check: passed.
 - Server production TypeScript build: passed.
-- Client Vite production build: passed; the optional Three.js enhancement remains in its own lazy chunk.
+- Client Vite production build: passed.
 - Playwright: 15 tests passed across desktop and mobile; one duplicate mobile run of the desktop-only width matrix was intentionally skipped.
 - Axe: no serious or critical issues detected on the landing page, sign-in page, dashboard, or customers page.
 - Offline production dependency audits: 0 vulnerabilities reported for both client and server lockfiles.

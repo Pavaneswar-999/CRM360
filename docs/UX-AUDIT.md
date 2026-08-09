@@ -9,7 +9,7 @@ CRM360 is useful only when the visible interface leads to a real action. This au
 | Area | Previous issue | Current behavior |
 | --- | --- | --- |
 | Public landing | Repeated cards and links led to the same destination. | Each workflow action has its own registration destination: leads, customers, tasks, or pipeline. |
-| Hero imagery | Generated visual directions could drift between unrelated images. | One approved text-free master image is reused with controlled crops and overlays. |
+| Hero imagery | Generated visual directions could drift between unrelated images. | The main text-free image is reused with controlled crops and overlays; the workflow has one distinct inset image. |
 | Authentication | The form was visually separate from the product story. | Live sign-in, registration, and password reset forms sit in the same full-canvas system with labels, errors, focus states, and password visibility controls. |
 | Dashboard | Equal-weight metrics obscured daily priorities. | The “Now” queue comes from actual dashboard tasks, follow-ups, and lead activity. Zero-data actions open the real creation routes. |
 | Navigation | Some display treatment implied workspace switching. | The sidebar now states the current workspace and role without implying an unavailable switcher. |

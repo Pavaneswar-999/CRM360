@@ -36,9 +36,9 @@ Use concise, specific language. Describe what CRM360 does in a person’s workda
 
 ## 5. Brand imagery
 
-The product image is `client/public/crm360-signal-room-hero.png`: carbon studio materials, layered record cards, task tabs, and a single citron thread. It is used as one canonical source for the landing page and auth backdrop.
+The main product image is `client/public/crm360-signal-room-hero.png`: carbon studio materials, layered record cards, task tabs, and a single citron thread. It is used for the landing hero, authentication backdrop, and final landing callout. `client/public/crm360-workflow-inset.png` is a separate small still life used only beside the workflow sequence.
 
-The image never supplies product data. CRM data is shown through live UI only after sign-in. Do not introduce people, stock-photo wallpaper, screens inside the image, copied brand marks, orbital scenes, or mismatched generated frames.
+Images never supply product data. CRM data is shown through live UI only after sign-in. Do not introduce people, stock-photo wallpaper, screens inside the image, copied brand marks, orbital scenes, or mismatched generated frames.
 
 ## 6. Layout system
 

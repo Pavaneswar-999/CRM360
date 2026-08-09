@@ -2,13 +2,11 @@
 
 ## Project status
 
-CRM360 now has a working MERN application structure with a React/Vite frontend, an Express/Node API, MongoDB/Mongoose models, authentication, role-based access, CRM workflows, tests, and deployment configuration.
-
-The remaining work is operational verification: connect the production services, confirm the live API and frontend, and record the results in the project documentation.
+CRM360 is a deployed MERN application with a React/Vite frontend, an Express/Node API, MongoDB/Mongoose models, authentication, role-based access, CRM workflows, automated checks, and a public Render showcase.
 
 ## Architecture
 
-- Frontend: React, Vite, TypeScript, React Router, React Hook Form, Lucide React, Framer Motion, GSAP, Lenis, and a contained Three.js enhancement.
+- Frontend: React, Vite, TypeScript, React Router, React Hook Form, Lucide React, Framer Motion, GSAP, and Lenis.
 - Backend: Node.js, Express, TypeScript, JWT authentication, bcrypt, Zod, Helmet, CORS, and rate limiting.
 - Database: MongoDB Atlas with Mongoose models and indexes.
 - Deployment: Render Blueprint for the API and frontend, with MongoDB Atlas as the database. Vercel remains an optional frontend alternative.
@@ -18,7 +16,7 @@ The remaining work is operational verification: connect the production services,
 
 - Product promise: “Every relationship. Every next step.”
 - The authenticated workspace is calm, information-dense, and focused on daily follow-through.
-- The public landing page uses a single original, text-free material image and restrained motion. The workspace prioritizes actual work queues, clear actions, and readable record data over decoration.
+- The public landing page uses original text-free editorial images, restrained motion, and a static relationship map. The workspace prioritizes actual work queues, clear actions, and readable record data over decoration.
 - The main differentiator is the database-derived Focus Queue and Next Action system, not a promised future feature.
 - Stage movement uses reliable explicit controls. Drag-and-drop is not presented as a feature.
 - Password reset uses hashed, expiring tokens. Production sends reset emails through SMTP; local development can use a safe reset-link response when SMTP is not configured.

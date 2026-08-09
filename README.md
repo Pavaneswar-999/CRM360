@@ -6,7 +6,7 @@ CRM360 is a focused customer relationship workspace for small teams. It keeps ev
 
 CRM360 implements the core CRM workflows described in the project brief. The product is centered on working, database-backed customer, lead, task, pipeline, and follow-up workflows rather than decorative dashboard content.
 
-The public experience uses the original **Editorial Signal Room** direction: mineral bone, carbon and moss structure, a muted citron action signal, and one canonical text-free image of record cards and task tabs. The landing page explains the real CRM workflow without presenting sample records as live data. Its workflow actions open the matching CRM area after registration.
+The public experience uses the original **Editorial Signal Room** direction: mineral bone, carbon and moss structure, a muted citron action signal, and two original text-free editorial images. The landing page explains the real CRM workflow without presenting sample records as live data. Its workflow actions open the matching CRM area after registration.
 
 ## Structure
 
@@ -34,7 +34,7 @@ API: `http://localhost:5000`
 - [API health](https://crm360-api-y6vx.onrender.com/api/health)
 - [API readiness and database health](https://crm360-api-y6vx.onrender.com/api/health/ready)
 
-If the browser shows “CRM360 API is offline,” the frontend is working but the API or MongoDB is not running. This machine currently has neither `mongod` on PATH nor a MongoDB Windows service, so account creation cannot persist until `MONGODB_URI` points to a running local or Atlas database.
+If the browser shows “CRM360 API is offline,” the frontend is working but the API or MongoDB is unavailable. Check the API service logs and confirm that `MONGODB_URI` points to a running local or Atlas database.
 
 ## Demo credentials
 
